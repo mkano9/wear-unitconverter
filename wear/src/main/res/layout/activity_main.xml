@@ -12,26 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingBottom="12dp"
+        android:paddingBottom="@dimen/center_divisor_padding"
         android:orientation="vertical"
-        android:background="@android:color/white"
+        android:background="@color/white"
         android:gravity="center|bottom">
 
         <TextView
             android:id="@+id/num_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
+            android:layout_marginBottom="@dimen/margin_between_num_and_unit"
+            android:textSize="@dimen/main_textsize"
+            android:textColor="@color/black"
             android:text="1234567890" />
 
         <TextView
             android:id="@+id/unit_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
+            android:textSize="@dimen/main_textsize"
+            android:textColor="@color/black"
             android:text="cm" />
 
     </LinearLayout>
@@ -40,23 +40,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingTop="12dp"
+        android:paddingTop="@dimen/center_divisor_padding"
         android:orientation="vertical"
+        android:background="@color/black"
         android:gravity="center|top">
 
         <TextView
             android:id="@+id/num_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textSize="24sp"
+            android:layout_marginBottom="@dimen/margin_between_num_and_unit"
+            android:textSize="@dimen/main_textsize"
+            android:textColor="@color/white"
             android:text="10" />
 
         <TextView
             android:id="@+id/unit_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="@dimen/main_textsize"
+            android:textColor="@color/white"
             android:text="m" />
 
     </LinearLayout>
