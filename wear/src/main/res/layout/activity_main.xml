@@ -18,21 +18,21 @@
         android:gravity="center|bottom">
 
         <TextView
-            android:id="@+id/num_from"
+            android:id="@+id/unit_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_between_num_and_unit"
             android:textSize="@dimen/main_textsize"
             android:textColor="@color/black"
-            android:text="1234567890" />
+            android:text="cm" />
 
         <TextView
-            android:id="@+id/unit_from"
+            android:id="@+id/num_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/main_textsize"
             android:textColor="@color/black"
-            android:text="cm" />
+            android:text="123456789021.349329" />
 
     </LinearLayout>
 
