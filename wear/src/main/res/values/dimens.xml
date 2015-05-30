@@ -3,6 +3,8 @@
     <dimen name="center_divisor_padding">12dp</dimen>
     <dimen name="margin_between_num_and_unit">12dp</dimen>
     <dimen name="min_width_number_label">100dp</dimen>
+    <dimen name="number_pad_gridview_width">190dp</dimen>
+    <dimen name="number_pad_cell_size">48dp</dimen>
 
     <dimen name="main_textsize">18sp</dimen>
 </resources>
