@@ -1,6 +1,7 @@
 package com.migapro.wearunitconverter;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -26,6 +27,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "number from", Toast.LENGTH_SHORT).show();
+                FragmentManager fm = getFragmentManager();
+                NumberInputDialogFragment numberInputDialog = new NumberInputDialogFragment();
+                numberInputDialog.show(fm, "fragment_number_input");
             }
         });
 
