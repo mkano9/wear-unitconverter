@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.NumberPadKey;
@@ -33,6 +34,8 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
         ButterKnife.inject(this);
 
         mNumberFrom = "0";
+
+        Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.unit_from)
