@@ -2,6 +2,7 @@ package com.migapro.wearunitconverter.ui;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
@@ -29,6 +30,7 @@ public class NumberInputDialogFragment extends DialogFragment {
 
     public interface OnKeyboardPressListener {
         public void onKeyPress(NumberPadKey key);
+        public void onDismiss();
     }
 
     @Nullable
@@ -57,6 +59,12 @@ public class NumberInputDialogFragment extends DialogFragment {
         Window window = getDialog().getWindow();
         window.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
         window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, 120); //TODO want 55% height
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        listener.onDismiss();
     }
 
     @Override

@@ -54,4 +54,13 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
         mNumberFrom = key.processKey(mNumberFrom);
         numFromLabel.setText(mNumberFrom);
     }
+
+    @Override
+    public void onDismiss() {
+        int lastIndex = mNumberFrom.length() - 1;
+        if (mNumberFrom.charAt(lastIndex) == '.') {
+            mNumberFrom = mNumberFrom.substring(0, lastIndex);
+            numFromLabel.setText(mNumberFrom);
+        }
+    }
 }
