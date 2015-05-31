@@ -6,7 +6,7 @@ public class MinusKey extends NumberPadKey {
 
     @Override
     public String processKey(String currentInput) {
-        if (currentInput.charAt(0) != '-') {
+        if (currentInput.charAt(0) != MINUS) {
             return MINUS + currentInput;
         }
         return currentInput;
