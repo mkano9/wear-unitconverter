@@ -1,11 +1,12 @@
 package com.migapro.wearunitconverter.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.WearableListView;
-import android.widget.Toast;
 
 import com.migapro.wearunitconverter.R;
+import com.migapro.wearunitconverter.utility.Constants;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -29,7 +30,10 @@ public class UnitListActivity extends Activity implements WearableListView.Click
 
     @Override
     public void onClick(WearableListView.ViewHolder v) {
-        Toast.makeText(UnitListActivity.this, "TEST", Toast.LENGTH_SHORT).show();
+        Intent intent = getIntent();
+        intent.putExtra(Constants.ITEM_SELECTED_KEY, v.itemView.getTag().toString());
+        setResult(Activity.RESULT_OK, intent);
+        finish();
     }
 
     @Override

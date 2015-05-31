@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.NumberPadKey;
+import com.migapro.wearunitconverter.utility.Constants;
 import com.migapro.wearunitconverter.utility.NumberPadUtility;
 
 import butterknife.ButterKnife;
@@ -38,7 +39,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     @OnClick(R.id.unit_from)
     public void onUnitFromClick() {
         Intent intent = new Intent(this, UnitListActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, Constants.REQUEST_CODE_UNIT_FROM);
     }
 
     @OnLongClick(R.id.unit_from)
@@ -58,6 +59,18 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     @OnClick(R.id.unit_to)
     public void onUnitToClick() {
         Toast.makeText(getApplicationContext(), "unit to", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
+            String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
+        }
     }
 
     @Override
