@@ -27,7 +27,7 @@ public class UnitWearListAdapter extends WearableListView.Adapter {
     public void onBindViewHolder(WearableListView.ViewHolder holder, int position) {
         TextView text = (TextView) holder.itemView.findViewById(R.id.row_text);
         text.setText(mData[position]);
-        holder.itemView.setTag("item" + position);
+        holder.itemView.setTag(mData[position]);
     }
 
     @Override

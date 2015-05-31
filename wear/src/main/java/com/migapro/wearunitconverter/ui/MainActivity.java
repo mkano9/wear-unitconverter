@@ -70,6 +70,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
         if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
             String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
+            unitFromLabel.setText(unitSelected);
         }
     }
 
