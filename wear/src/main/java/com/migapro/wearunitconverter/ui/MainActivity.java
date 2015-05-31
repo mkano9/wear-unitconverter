@@ -29,7 +29,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
         ButterKnife.inject(this);
 
-        mNumberFrom = "";
+        mNumberFrom = "0";
     }
 
     @OnClick(R.id.unit_from)
