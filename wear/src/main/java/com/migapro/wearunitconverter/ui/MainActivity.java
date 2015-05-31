@@ -8,12 +8,13 @@ import android.widget.Toast;
 
 import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.NumberPadKey;
+import com.migapro.wearunitconverter.utility.NumberPadUtility;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class MainActivity extends Activity implements NumberInputDialogFragment.OnKeyboardPressListener {
+public class MainActivity extends Activity implements NumberInputDialogFragment.NumberInputDialogListener {
 
     @InjectView(R.id.unit_from) TextView unitFromLabel;
     @InjectView(R.id.num_from) TextView numFromLabel;
@@ -57,21 +58,14 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @Override
     public void onDismiss() {
-        int lastIndex = mNumberFrom.length() - 1;
-        if (mNumberFrom.charAt(lastIndex) == '.') {
-            mNumberFrom = mNumberFrom.substring(0, lastIndex);
+        if (NumberPadUtility.isLastCharPeriod(mNumberFrom)) {
+            mNumberFrom = mNumberFrom.substring(0, mNumberFrom.length() - 1);
             numFromLabel.setText(mNumberFrom);
         }
 
-        if (isNegativeZero()) {
+        if (NumberPadUtility.isNegativeZero(mNumberFrom)) {
             mNumberFrom = "0";
             numFromLabel.setText(mNumberFrom);
         }
-    }
-
-    private boolean isNegativeZero() {
-        return (mNumberFrom.length() == 2
-                && mNumberFrom.charAt(0) == '-'
-                && mNumberFrom.charAt(1) == '0');
     }
 }

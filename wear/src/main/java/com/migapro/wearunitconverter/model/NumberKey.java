@@ -1,5 +1,7 @@
 package com.migapro.wearunitconverter.model;
 
+import com.migapro.wearunitconverter.utility.NumberPadUtility;
+
 public class NumberKey extends NumberPadKey {
 
     private String mNumber;
@@ -10,18 +12,12 @@ public class NumberKey extends NumberPadKey {
 
     @Override
     public String processKey(String currentInput) {
-        if (currentInput.length() == 1 && currentInput.charAt(0) == '0') {
+        if (NumberPadUtility.isOnlyZero(currentInput)) {
             return mNumber;
-        } else if (isNegativeZero(currentInput)) {
+        } else if (NumberPadUtility.isNegativeZero(currentInput)) {
             return '-' + mNumber;
         }
 
         return currentInput + mNumber;
-    }
-
-    private boolean isNegativeZero(String number) {
-        return (number.length() == 2
-                && number.charAt(0) == '-'
-                && number.charAt(1) == '0');
     }
 }
