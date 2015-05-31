@@ -62,5 +62,16 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
             mNumberFrom = mNumberFrom.substring(0, lastIndex);
             numFromLabel.setText(mNumberFrom);
         }
+
+        if (isNegativeZero()) {
+            mNumberFrom = "0";
+            numFromLabel.setText(mNumberFrom);
+        }
+    }
+
+    private boolean isNegativeZero() {
+        return (mNumberFrom.length() == 2
+                && mNumberFrom.charAt(0) == '-'
+                && mNumberFrom.charAt(1) == '0');
     }
 }
