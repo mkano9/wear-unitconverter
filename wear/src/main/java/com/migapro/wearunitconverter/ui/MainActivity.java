@@ -44,7 +44,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     @OnLongClick(R.id.unit_from)
     public boolean onUnitFromLongClick() {
         Intent intent = new Intent(this, UnitListActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, Constants.REQUEST_CODE_CHANGE_UNIT_TYPE);
         return true;
     }
 
@@ -68,11 +68,15 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
             return;
         }
 
+        if (requestCode == Constants.REQUEST_CODE_CHANGE_UNIT_TYPE) {
+            //TODO Add logic to change unit type
+            return;
+        }
+
+        String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
         if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
-            String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
             unitFromLabel.setText(unitSelected);
         } else if (requestCode == Constants.REQUEST_CODE_UNIT_TO) {
-            String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
             unitToLabel.setText(unitSelected);
         }
     }

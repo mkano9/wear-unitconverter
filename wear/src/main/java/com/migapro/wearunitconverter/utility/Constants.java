@@ -5,4 +5,5 @@ public class Constants {
 
     public static final int REQUEST_CODE_UNIT_FROM = 0;
     public static final int REQUEST_CODE_UNIT_TO = 1;
+    public static final int REQUEST_CODE_CHANGE_UNIT_TYPE = 2;
 }
