@@ -35,6 +35,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
         mNumberFrom = "0";
 
+        // TODO Display this e.g. once in twice for 5 times
         Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_LONG).show();
     }
 
