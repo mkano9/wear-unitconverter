@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.NumberPadKey;
@@ -58,7 +57,8 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @OnClick(R.id.unit_to)
     public void onUnitToClick() {
-        Toast.makeText(getApplicationContext(), "unit to", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, UnitListActivity.class);
+        startActivityForResult(intent, Constants.REQUEST_CODE_UNIT_TO);
     }
 
     @Override
@@ -71,6 +71,9 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
         if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
             String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
             unitFromLabel.setText(unitSelected);
+        } else if (requestCode == Constants.REQUEST_CODE_UNIT_TO) {
+            String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
+            unitToLabel.setText(unitSelected);
         }
     }
 
