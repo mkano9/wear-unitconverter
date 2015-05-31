@@ -14,6 +14,7 @@ import com.migapro.wearunitconverter.utility.NumberPadUtility;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class MainActivity extends Activity implements NumberInputDialogFragment.NumberInputDialogListener {
 
@@ -38,6 +39,13 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     public void onUnitFromClick() {
         Intent intent = new Intent(this, UnitListActivity.class);
         startActivity(intent);
+    }
+
+    @OnLongClick(R.id.unit_from)
+    public boolean onUnitFromLongClick() {
+        Intent intent = new Intent(this, UnitListActivity.class);
+        startActivity(intent);
+        return true;
     }
 
     @OnClick(R.id.num_from)
