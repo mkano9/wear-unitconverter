@@ -2,6 +2,9 @@
 <resources>
 
     <string-array name="number_pad_keys">
+        <item>C</item>
+        <item>-</item>
+        <item>.</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -12,7 +15,6 @@
         <item>8</item>
         <item>9</item>
         <item>0</item>
-        <item>.</item>
         <item>x</item>
     </string-array>
 

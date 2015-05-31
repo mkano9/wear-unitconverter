@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.migapro.wearunitconverter.model.NumberPadKey;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -47,8 +49,8 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     }
 
     @Override
-    public void onKeyPress(String key) {
-        mNumberFrom += key; // Dummy
+    public void onKeyPress(NumberPadKey key) {
+        mNumberFrom = key.processKey(mNumberFrom);
         numFromLabel.setText(mNumberFrom);
     }
 }
