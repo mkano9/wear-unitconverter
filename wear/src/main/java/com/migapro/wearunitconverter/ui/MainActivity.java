@@ -1,4 +1,4 @@
-package com.migapro.wearunitconverter;
+package com.migapro.wearunitconverter.ui;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.NumberPadKey;
 
 import butterknife.ButterKnife;

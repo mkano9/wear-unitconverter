@@ -1,4 +1,4 @@
-package com.migapro.wearunitconverter;
+package com.migapro.wearunitconverter.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+
+import com.migapro.wearunitconverter.R;
 
 public class NumberPadGridAdapter extends BaseAdapter {
 

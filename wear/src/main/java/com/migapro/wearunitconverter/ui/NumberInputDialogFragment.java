@@ -1,4 +1,4 @@
-package com.migapro.wearunitconverter;
+package com.migapro.wearunitconverter.ui;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 
+import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.NumberPadKey;
 import com.migapro.wearunitconverter.utility.Utility;
 
