@@ -30,7 +30,7 @@ public class NumberInputDialogFragment extends DialogFragment {
 
     public interface NumberInputDialogListener {
         public void onKeyPress(NumberPadKey key);
-        public void onDismiss();
+        public void onDialogDismiss();
     }
 
     @Nullable
@@ -64,7 +64,7 @@ public class NumberInputDialogFragment extends DialogFragment {
     @Override
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
-        listener.onDismiss();
+        listener.onDialogDismiss();
     }
 
     @Override

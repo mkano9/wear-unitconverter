@@ -88,7 +88,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     }
 
     @Override
-    public void onDismiss() {
+    public void onDialogDismiss() {
         if (NumberPadUtility.isLastCharPeriod(mNumberFrom)) {
             mNumberFrom = mNumberFrom.substring(0, mNumberFrom.length() - 1);
             numFromLabel.setText(mNumberFrom);
