@@ -2,6 +2,7 @@ package com.migapro.wearunitconverter.ui;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,8 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @OnClick(R.id.unit_from)
     public void onUnitFromClick() {
-        Toast.makeText(getApplicationContext(), "unit from", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, UnitListActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.num_from)
