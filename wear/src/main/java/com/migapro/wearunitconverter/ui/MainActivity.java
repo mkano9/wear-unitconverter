@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.migapro.wearunitconverter.R;
+import com.migapro.wearunitconverter.model.Conversion;
 import com.migapro.wearunitconverter.model.NumberPadKey;
 import com.migapro.wearunitconverter.utility.Constants;
 import com.migapro.wearunitconverter.utility.NumberPadUtility;
@@ -24,7 +25,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     @InjectView(R.id.unit_to) TextView unitToLabel;
     @InjectView(R.id.num_to) TextView numToLabel;
 
-    private String mNumberFrom;
+    private Conversion mConversion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
         ButterKnife.inject(this);
 
-        mNumberFrom = "0";
+        mConversion = new Conversion();
 
         // TODO Display this e.g. once in twice for 5 times
         Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_LONG).show();
@@ -80,27 +81,34 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
         String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
         if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
             unitFromLabel.setText(unitSelected);
+            mConversion.setUnitFrom(unitSelected);
         } else if (requestCode == Constants.REQUEST_CODE_UNIT_TO) {
             unitToLabel.setText(unitSelected);
+            mConversion.setUnitTo(unitSelected);
         }
+        mConversion.convertNumber();
+        numToLabel.setText(mConversion.getNumTo());
     }
 
     @Override
     public void onKeyPress(NumberPadKey key) {
-        mNumberFrom = key.processKey(mNumberFrom);
-        numFromLabel.setText(mNumberFrom);
+        String processedNumber = key.processKey(mConversion.getNumFrom());
+        mConversion.setNumFrom(processedNumber);
+        numFromLabel.setText(processedNumber);
     }
 
     @Override
     public void onDialogDismiss() {
-        if (NumberPadUtility.isLastCharPeriod(mNumberFrom)) {
-            mNumberFrom = mNumberFrom.substring(0, mNumberFrom.length() - 1);
-            numFromLabel.setText(mNumberFrom);
+        String numberFrom = mConversion.getNumFrom();
+
+        if (NumberPadUtility.isLastCharPeriod(numberFrom)) {
+            mConversion.setNumFrom(numberFrom.substring(0, numberFrom.length() - 1));
+            numFromLabel.setText(mConversion.getNumFrom());
         }
 
-        if (NumberPadUtility.isNegativeZero(mNumberFrom)) {
-            mNumberFrom = "0";
-            numFromLabel.setText(mNumberFrom);
+        if (NumberPadUtility.isNegativeZero(numberFrom)) {
+            mConversion.setNumFrom("0");
+            numFromLabel.setText(mConversion.getNumFrom());
         }
     }
 }
