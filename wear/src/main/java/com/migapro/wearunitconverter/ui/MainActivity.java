@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
         mConversion = new Conversion();
 
         // TODO Display this e.g. once in twice for 5 times
-        Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.unit_from)
