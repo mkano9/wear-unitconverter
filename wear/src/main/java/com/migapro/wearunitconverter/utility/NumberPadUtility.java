@@ -1,11 +1,11 @@
 package com.migapro.wearunitconverter.utility;
 
-import com.migapro.wearunitconverter.model.ClearKey;
-import com.migapro.wearunitconverter.model.DecimalPeriodKey;
-import com.migapro.wearunitconverter.model.MinusKey;
-import com.migapro.wearunitconverter.model.NumberKey;
-import com.migapro.wearunitconverter.model.NumberPadKey;
-import com.migapro.wearunitconverter.model.SingleDeleteKey;
+import com.migapro.wearunitconverter.model.numberpadkey.ClearKey;
+import com.migapro.wearunitconverter.model.numberpadkey.DecimalPeriodKey;
+import com.migapro.wearunitconverter.model.numberpadkey.MinusKey;
+import com.migapro.wearunitconverter.model.numberpadkey.NumberKey;
+import com.migapro.wearunitconverter.model.numberpadkey.NumberPadKey;
+import com.migapro.wearunitconverter.model.numberpadkey.SingleDeleteKey;
 
 public class NumberPadUtility {
 

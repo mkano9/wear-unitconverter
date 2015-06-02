@@ -1,4 +1,4 @@
-package com.migapro.wearunitconverter.model;
+package com.migapro.wearunitconverter.model.numberpadkey;
 
 public class ClearKey extends NumberPadKey {
     @Override

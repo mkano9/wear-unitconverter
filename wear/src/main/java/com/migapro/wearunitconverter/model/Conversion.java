@@ -13,6 +13,14 @@ public class Conversion {
     }
 
     public void convertNumber() {
+        double numberFrom = 0.0;
+
+        try {
+            numberFrom = Double.parseDouble(mNumFrom);
+        } catch (NumberFormatException nfe) {
+            numberFrom = 0.0; //TODO Temporary
+        }
+
         // TODO
         // convert to base unit
         // convert to target unit

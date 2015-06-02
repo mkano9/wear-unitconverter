@@ -1,4 +1,4 @@
-package com.migapro.wearunitconverter.model;
+package com.migapro.wearunitconverter.model.numberpadkey;
 
 import com.migapro.wearunitconverter.utility.NumberPadUtility;
 

@@ -15,7 +15,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 
 import com.migapro.wearunitconverter.R;
-import com.migapro.wearunitconverter.model.NumberPadKey;
+import com.migapro.wearunitconverter.model.numberpadkey.NumberPadKey;
 import com.migapro.wearunitconverter.utility.NumberPadUtility;
 
 import butterknife.ButterKnife;
