@@ -39,7 +39,7 @@ public class Conversion {
         double converted = base / mUnitList.getUnitValue(mUnitTo);
         mNumTo = String.valueOf(converted);
     }
-    
+
     public String getNumFrom() {
         return mNumFrom;
     }
@@ -66,10 +66,6 @@ public class Conversion {
 
     public void setUnitFrom(int mUnitFrom) {
         this.mUnitFrom = mUnitFrom;
-    }
-
-    public void setNumTo(String mNumTo) {
-        this.mNumTo = mNumTo;
     }
 
     public void setUnitTo(int mUnitTo) {
