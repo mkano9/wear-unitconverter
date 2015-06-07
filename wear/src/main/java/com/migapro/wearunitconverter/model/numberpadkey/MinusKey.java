@@ -8,9 +8,10 @@ public class MinusKey extends NumberPadKey {
 
     @Override
     public String processKey(String currentInput) {
-        if (!NumberPadUtility.isFirstLetterNegativeSign(currentInput)) {
-            return MINUS + currentInput;
+        if (NumberPadUtility.isFirstLetterNegativeSign(currentInput)) {
+            return currentInput.substring(1);
         }
-        return currentInput;
+
+        return MINUS + currentInput;
     }
 }
