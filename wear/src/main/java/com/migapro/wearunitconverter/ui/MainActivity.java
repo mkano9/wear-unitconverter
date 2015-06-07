@@ -42,17 +42,14 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @OnClick(R.id.unit_from)
     public void onUnitFromClick() {
-        Intent intent = new Intent(this, WearListActivity.class);
-        intent.putExtra(Constants.KEY_LISTVIEW_DATA, mConversion.getUnitNamesList());
-        startActivityForResult(intent, Constants.REQUEST_CODE_UNIT_FROM);
+        startWearListActivityForResult(mConversion.getUnitNamesList(), Constants.REQUEST_CODE_UNIT_FROM);
     }
 
     @OnLongClick(R.id.unit_from)
     public boolean onUnitFromLongClick() {
-        Intent intent = new Intent(this, WearListActivity.class);
-        intent.putExtra(Constants.KEY_LISTVIEW_DATA,
-                getResources().getStringArray(R.array.measurement_types));
-        startActivityForResult(intent, Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE);
+        startWearListActivityForResult(
+                getResources().getStringArray(R.array.measurement_types),
+                Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE);
         return true;
     }
 
@@ -65,9 +62,13 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @OnClick(R.id.unit_to)
     public void onUnitToClick() {
+        startWearListActivityForResult(mConversion.getUnitNamesList(), Constants.REQUEST_CODE_UNIT_TO);
+    }
+
+    private void startWearListActivityForResult(String[] data, int requestCode) {
         Intent intent = new Intent(this, WearListActivity.class);
-        intent.putExtra(Constants.KEY_LISTVIEW_DATA, mConversion.getUnitNamesList());
-        startActivityForResult(intent, Constants.REQUEST_CODE_UNIT_TO);
+        intent.putExtra(Constants.KEY_LISTVIEW_DATA, data);
+        startActivityForResult(intent, requestCode);
     }
 
     @Override
