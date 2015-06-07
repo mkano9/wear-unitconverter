@@ -18,11 +18,25 @@
         <item>x</item>
     </string-array>
 
-    <string-array name="length_units">
+    <string-array name="unit_names_length">
         <item>mm</item>
         <item>cm</item>
         <item>m</item>
         <item>km</item>
+    </string-array>
+
+    <string-array name="unit_values_length">
+        <item>0.001</item>
+        <item>0.01</item>
+        <item>1</item>
+        <item>1000</item>
+    </string-array>
+
+    <string-array name="measurement_types">
+        <item>Length</item>
+        <item>Weight</item>
+        <item>Temperature</item>
+        <item>Volume</item>
     </string-array>
 
 </resources>

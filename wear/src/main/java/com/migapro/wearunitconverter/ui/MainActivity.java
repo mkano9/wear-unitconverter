@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
         ButterKnife.inject(this);
 
-        mConversion = new Conversion();
+        mConversion = new Conversion(this);
 
         // TODO Display this e.g. once in twice for 5 times
         Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_SHORT).show();
@@ -42,14 +42,17 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @OnClick(R.id.unit_from)
     public void onUnitFromClick() {
-        Intent intent = new Intent(this, UnitListActivity.class);
+        Intent intent = new Intent(this, WearListActivity.class);
+        intent.putExtra(Constants.KEY_LISTVIEW_DATA, mConversion.getUnitNamesList());
         startActivityForResult(intent, Constants.REQUEST_CODE_UNIT_FROM);
     }
 
     @OnLongClick(R.id.unit_from)
     public boolean onUnitFromLongClick() {
-        Intent intent = new Intent(this, UnitListActivity.class);
-        startActivityForResult(intent, Constants.REQUEST_CODE_CHANGE_UNIT_TYPE);
+        Intent intent = new Intent(this, WearListActivity.class);
+        intent.putExtra(Constants.KEY_LISTVIEW_DATA,
+                getResources().getStringArray(R.array.measurement_types));
+        startActivityForResult(intent, Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE);
         return true;
     }
 
@@ -62,7 +65,8 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     @OnClick(R.id.unit_to)
     public void onUnitToClick() {
-        Intent intent = new Intent(this, UnitListActivity.class);
+        Intent intent = new Intent(this, WearListActivity.class);
+        intent.putExtra(Constants.KEY_LISTVIEW_DATA, mConversion.getUnitNamesList());
         startActivityForResult(intent, Constants.REQUEST_CODE_UNIT_TO);
     }
 
@@ -73,18 +77,17 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
             return;
         }
 
-        if (requestCode == Constants.REQUEST_CODE_CHANGE_UNIT_TYPE) {
-            //TODO Add logic to change unit type
+        if (requestCode == Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE) {
             return;
         }
 
-        String unitSelected = data.getStringExtra(Constants.ITEM_SELECTED_KEY);
+        int unitSelectedIndex = data.getIntExtra(Constants.ITEM_SELECTED_POSITION_KEY, 0);
         if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
-            unitFromLabel.setText(unitSelected);
-            mConversion.setUnitFrom(unitSelected);
+            mConversion.setUnitFrom(unitSelectedIndex);
+            unitFromLabel.setText(mConversion.getUnitFromName());
         } else if (requestCode == Constants.REQUEST_CODE_UNIT_TO) {
-            unitToLabel.setText(unitSelected);
-            mConversion.setUnitTo(unitSelected);
+            mConversion.setUnitTo(unitSelectedIndex);
+            unitToLabel.setText(mConversion.getUnitToName());
         }
         mConversion.convertNumber();
         numToLabel.setText(mConversion.getNumTo());
