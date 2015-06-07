@@ -25,8 +25,7 @@
             android:minWidth="@dimen/min_width_number_label"
             android:padding="4dp"
             android:textSize="@dimen/main_textsize"
-            android:textColor="@color/black"
-            android:text="cm" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/num_from"
@@ -69,8 +68,7 @@
             android:minWidth="@dimen/min_width_number_label"
             android:padding="4dp"
             android:textSize="@dimen/main_textsize"
-            android:textColor="@color/white"
-            android:text="m" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

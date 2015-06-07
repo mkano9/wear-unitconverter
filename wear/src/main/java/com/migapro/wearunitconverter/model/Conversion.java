@@ -20,6 +20,12 @@ public class Conversion {
         loadUnitsList(context);
     }
 
+    public void loadUnitsList(Context context) {
+        String[] unitNamesArray = context.getResources().getStringArray(R.array.unit_names_length);
+        String[] unitValuesArray = context.getResources().getStringArray(R.array.unit_values_length);
+        mUnitList = new UnitList(unitNamesArray, unitValuesArray);
+    }
+
     public void convertNumber() {
         double numberFrom = 0.0;
 
@@ -29,17 +35,11 @@ public class Conversion {
             numberFrom = 0.0; //TODO Temporary
         }
 
-        // TODO
-        // convert to base unit
-        // convert to target unit
+        double base = numberFrom * mUnitList.getUnitValue(mUnitFrom);
+        double converted = base / mUnitList.getUnitValue(mUnitTo);
+        mNumTo = String.valueOf(converted);
     }
-
-    public void loadUnitsList(Context context) {
-        String[] unitNamesArray = context.getResources().getStringArray(R.array.unit_names_length);
-        String[] unitValuesArray = context.getResources().getStringArray(R.array.unit_values_length);
-        mUnitList = new UnitList(unitNamesArray, unitValuesArray);
-    }
-
+    
     public String getNumFrom() {
         return mNumFrom;
     }

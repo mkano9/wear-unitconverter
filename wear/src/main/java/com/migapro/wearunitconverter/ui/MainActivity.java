@@ -34,10 +34,17 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
         ButterKnife.inject(this);
 
-        mConversion = new Conversion(this);
+        initConversion();
 
         // TODO Display this e.g. once in twice for 5 times
         Toast.makeText(this, getString(R.string.long_press_tip), Toast.LENGTH_SHORT).show();
+    }
+
+    private void initConversion() {
+        mConversion = new Conversion(this);
+
+        unitFromLabel.setText(mConversion.getUnitFromName());
+        unitToLabel.setText(mConversion.getUnitToName());
     }
 
     @OnClick(R.id.unit_from)
