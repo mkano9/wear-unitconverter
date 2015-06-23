@@ -34,9 +34,6 @@
 
     <string-array name="measurement_types">
         <item>Length</item>
-        <item>Weight</item>
-        <item>Temperature</item>
-        <item>Volume</item>
     </string-array>
 
 </resources>

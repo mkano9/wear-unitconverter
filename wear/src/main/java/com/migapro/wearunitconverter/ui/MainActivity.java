@@ -42,7 +42,10 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
 
     private void initConversion() {
         mConversion = new Conversion(this);
+        updateUnitLabels();
+    }
 
+    private void updateUnitLabels() {
         unitFromLabel.setText(mConversion.getUnitFromName());
         unitToLabel.setText(mConversion.getUnitToName());
     }
@@ -85,11 +88,15 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
             return;
         }
 
+        int unitSelectedIndex = data.getIntExtra(Constants.ITEM_SELECTED_POSITION_KEY, 0);
+
         if (requestCode == Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE) {
+            mConversion.setMeasurementType(unitSelectedIndex);
+            mConversion.loadUnitsList(this);
+            updateUnitLabels();
             return;
         }
 
-        int unitSelectedIndex = data.getIntExtra(Constants.ITEM_SELECTED_POSITION_KEY, 0);
         if (requestCode == Constants.REQUEST_CODE_UNIT_FROM) {
             mConversion.setUnitFrom(unitSelectedIndex);
             unitFromLabel.setText(mConversion.getUnitFromName());

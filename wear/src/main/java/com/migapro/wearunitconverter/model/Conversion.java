@@ -2,7 +2,7 @@ package com.migapro.wearunitconverter.model;
 
 import android.content.Context;
 
-import com.migapro.wearunitconverter.R;
+import com.migapro.wearunitconverter.utility.Constants;
 
 import java.math.BigDecimal;
 
@@ -23,9 +23,14 @@ public class Conversion {
     }
 
     public void loadUnitsList(Context context) {
-        String[] unitNamesArray = context.getResources().getStringArray(R.array.unit_names_length);
-        String[] unitValuesArray = context.getResources().getStringArray(R.array.unit_values_length);
+        String[] unitNamesArray =
+                context.getResources().getStringArray(Constants.UNIT_NAMES_RESOURCE_IDS[mMeasurementType]);
+        String[] unitValuesArray =
+                context.getResources().getStringArray(Constants.UNIT_VALUES_RESOURCE_IDS[mMeasurementType]);
+        
         mUnitList = new UnitList(unitNamesArray, unitValuesArray);
+        mUnitTo = 0;
+        mUnitFrom = 0;
     }
 
     public void convertNumber() {
