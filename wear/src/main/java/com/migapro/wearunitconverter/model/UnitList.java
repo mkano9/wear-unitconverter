@@ -18,8 +18,8 @@ public class UnitList {
         return mUnitValues;
     }
 
-    public double getUnitValue(int position) {
-        return Double.parseDouble(mUnitValues[position]);
+    public String getUnitValue(int position) {
+        return mUnitValues[position];
     }
 
     public void setUnitNames(String[] unitNames) {

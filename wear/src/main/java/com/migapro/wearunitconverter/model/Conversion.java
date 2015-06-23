@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.migapro.wearunitconverter.R;
 
+import java.math.BigDecimal;
+
 public class Conversion {
 
     private String mNumFrom;
@@ -27,17 +29,13 @@ public class Conversion {
     }
 
     public void convertNumber() {
-        double numberFrom = 0.0;
+        BigDecimal numberFrom = new BigDecimal(mNumFrom);
+        BigDecimal unitFromValue = new BigDecimal(mUnitList.getUnitValue(mUnitFrom));
+        BigDecimal unitToValue = new BigDecimal(mUnitList.getUnitValue(mUnitTo));
 
-        try {
-            numberFrom = Double.parseDouble(mNumFrom);
-        } catch (NumberFormatException nfe) {
-            numberFrom = 0.0; //TODO Temporary
-        }
-
-        double base = numberFrom * mUnitList.getUnitValue(mUnitFrom);
-        double converted = base / mUnitList.getUnitValue(mUnitTo);
-        mNumTo = String.valueOf(converted);
+        BigDecimal numConvertedToBase = numberFrom.multiply(unitFromValue);
+        BigDecimal result = numConvertedToBase.divide(unitToValue);
+        mNumTo = result.toPlainString();
     }
 
     public String getNumFrom() {
