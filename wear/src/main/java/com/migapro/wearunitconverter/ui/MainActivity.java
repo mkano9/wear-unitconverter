@@ -88,7 +88,7 @@ public class MainActivity extends Activity implements NumberPadDialogFragment.Nu
             return;
         }
 
-        int unitSelectedIndex = data.getIntExtra(Constants.ITEM_SELECTED_POSITION_KEY, 0);
+        int unitSelectedIndex = data.getIntExtra(Constants.KEY_ITEM_SELECTED_POSITION, 0);
 
         if (requestCode == Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE) {
             mConversion.setMeasurementType(unitSelectedIndex);

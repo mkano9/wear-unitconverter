@@ -35,7 +35,7 @@ public class WearListActivity extends Activity implements WearListFragment.WearL
     @Override
     public void onListItemSelected(int position) {
         Intent intent = getIntent();
-        intent.putExtra(Constants.ITEM_SELECTED_POSITION_KEY, position);
+        intent.putExtra(Constants.KEY_ITEM_SELECTED_POSITION, position);
         setResult(Activity.RESULT_OK, intent);
         finish();
     }

@@ -28,7 +28,7 @@ public class WearListFragment extends Fragment implements WearableListView.Click
     public static Fragment newInstance(String[] data) {
         Fragment fragment = new WearListFragment();
         Bundle bundle = new Bundle();
-        bundle.putStringArray(Constants.DATA_LIST_KEY, data);
+        bundle.putStringArray(Constants.KEY_DATA_LIST, data);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -39,7 +39,7 @@ public class WearListFragment extends Fragment implements WearableListView.Click
         View rootView = inflater.inflate(R.layout.fragment_wear_list, container, false);
         ButterKnife.inject(this, rootView);
 
-        String[] data = getArguments().getStringArray(Constants.DATA_LIST_KEY);
+        String[] data = getArguments().getStringArray(Constants.KEY_DATA_LIST);
         wearableListView.setAdapter(new UnitWearListAdapter(getActivity(), data));
         wearableListView.setClickListener(this);
 
