@@ -18,7 +18,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-public class MainActivity extends Activity implements NumberInputDialogFragment.NumberInputDialogListener {
+public class MainActivity extends Activity implements NumberPadDialogFragment.NumberInputDialogListener {
 
     @InjectView(R.id.unit_from) TextView unitFromLabel;
     @InjectView(R.id.num_from) TextView numFromLabel;
@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     @OnClick(R.id.num_from)
     public void onNumFromClick() {
         FragmentManager fm = getFragmentManager();
-        NumberInputDialogFragment numberInputDialog = new NumberInputDialogFragment();
+        NumberPadDialogFragment numberInputDialog = new NumberPadDialogFragment();
         numberInputDialog.show(fm, "fragment_number_input");
     }
 

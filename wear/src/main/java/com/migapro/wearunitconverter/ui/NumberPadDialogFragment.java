@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -22,11 +23,16 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnItemClick;
 
-public class NumberInputDialogFragment extends DialogFragment {
+public class NumberPadDialogFragment extends DialogFragment implements AdapterView.OnItemClickListener {
 
     @InjectView(R.id.gridview) GridView gridView;
 
     private NumberInputDialogListener listener;
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
 
     public interface NumberInputDialogListener {
         public void onKeyPress(NumberPadKey key);
