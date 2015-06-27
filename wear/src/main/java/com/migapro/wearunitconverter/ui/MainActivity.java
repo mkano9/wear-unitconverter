@@ -104,6 +104,11 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
             mConversion.setUnitTo(unitSelectedIndex);
             unitToLabel.setText(mConversion.getUnitToName());
         }
+
+        updateConversion();
+    }
+
+    private void updateConversion() {
         mConversion.convertNumber();
         numToLabel.setText(mConversion.getNumTo());
     }
@@ -128,5 +133,7 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
             mConversion.setNumFrom("0");
             numFromLabel.setText(mConversion.getNumFrom());
         }
+
+        updateConversion();
     }
 }
