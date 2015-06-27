@@ -12,8 +12,8 @@ public class Conversion {
     private String mNumTo;
 
     private UnitList mUnitList;
-    private int mUnitTo;
-    private int mUnitFrom;
+    private int mUnitToIndex;
+    private int mUnitFromIndex;
     private int mMeasurementType;
 
     public Conversion(Context context) {
@@ -29,14 +29,14 @@ public class Conversion {
                 context.getResources().getStringArray(Constants.UNIT_VALUES_RESOURCE_IDS[mMeasurementType]);
         
         mUnitList = new UnitList(unitNamesArray, unitValuesArray);
-        mUnitTo = 0;
-        mUnitFrom = 0;
+        mUnitToIndex = 0;
+        mUnitFromIndex = 0;
     }
 
     public void convertNumber() {
         BigDecimal numberFrom = new BigDecimal(mNumFrom);
-        BigDecimal unitFromValue = new BigDecimal(mUnitList.getUnitValue(mUnitFrom));
-        BigDecimal unitToValue = new BigDecimal(mUnitList.getUnitValue(mUnitTo));
+        BigDecimal unitFromValue = new BigDecimal(mUnitList.getUnitValue(mUnitFromIndex));
+        BigDecimal unitToValue = new BigDecimal(mUnitList.getUnitValue(mUnitToIndex));
 
         BigDecimal numConvertedToBase = numberFrom.multiply(unitFromValue);
         BigDecimal result = numConvertedToBase.divide(unitToValue);
@@ -48,7 +48,7 @@ public class Conversion {
     }
 
     public String getUnitFromName() {
-        return mUnitList.getUnitNames()[mUnitFrom];
+        return mUnitList.getUnitNames()[mUnitFromIndex];
     }
 
     public String getNumTo() {
@@ -56,23 +56,23 @@ public class Conversion {
     }
 
     public String getUnitToName() {
-        return mUnitList.getUnitNames()[mUnitTo];
+        return mUnitList.getUnitNames()[mUnitToIndex];
     }
 
     public String[] getUnitNamesList() {
         return mUnitList.getUnitNames();
     }
 
-    public void setNumFrom(String mNumFrom) {
-        this.mNumFrom = mNumFrom;
+    public void setNumFrom(String numFrom) {
+        mNumFrom = numFrom;
     }
 
-    public void setUnitFrom(int mUnitFrom) {
-        this.mUnitFrom = mUnitFrom;
+    public void setUnitFrom(int unitFrom) {
+        mUnitFromIndex = unitFrom;
     }
 
-    public void setUnitTo(int mUnitTo) {
-        this.mUnitTo = mUnitTo;
+    public void setUnitTo(int unitTo) {
+        mUnitToIndex = unitTo;
     }
 
     public void setMeasurementType(int measurementType) {
