@@ -55,14 +55,6 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
         startWearListActivityForResult(mConversion.getUnitNamesList(), Constants.REQUEST_CODE_UNIT_FROM);
     }
 
-    @OnLongClick(R.id.unit_from)
-    public boolean onUnitFromLongClick() {
-        startWearListActivityForResult(
-                getResources().getStringArray(R.array.measurement_types),
-                Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE);
-        return true;
-    }
-
     @OnClick(R.id.num_from)
     public void onNumFromClick() {
         FragmentManager fm = getFragmentManager();
@@ -73,6 +65,14 @@ public class MainActivity extends Activity implements NumberInputDialogFragment.
     @OnClick(R.id.unit_to)
     public void onUnitToClick() {
         startWearListActivityForResult(mConversion.getUnitNamesList(), Constants.REQUEST_CODE_UNIT_TO);
+    }
+
+    @OnLongClick({R.id.unit_from, R.id.unit_to})
+    public boolean onUnitLongClick() {
+        startWearListActivityForResult(
+                getResources().getStringArray(R.array.measurement_types),
+                Constants.REQUEST_CODE_CHANGE_MEASUREMENT_TYOE);
+        return true;
     }
 
     private void startWearListActivityForResult(String[] data, int requestCode) {
