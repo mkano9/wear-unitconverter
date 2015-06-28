@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements NumberPadDialogFragment.Nu
     public void onNumFromClick() {
         FragmentManager fm = getFragmentManager();
         NumberPadDialogFragment numberInputDialog = new NumberPadDialogFragment();
-        numberInputDialog.show(fm, "fragment_number_input");
+        numberInputDialog.show(fm, "fragment_number_pad");
     }
 
     @OnClick(R.id.unit_to)

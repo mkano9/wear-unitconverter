@@ -37,7 +37,7 @@ public class NumberPadDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_number_input, container, false);
+        View view = inflater.inflate(R.layout.fragment_number_pad, container, false);
 
         ButterKnife.inject(this, view);
 
