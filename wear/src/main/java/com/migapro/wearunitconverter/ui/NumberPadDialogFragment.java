@@ -5,6 +5,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +59,13 @@ public class NumberPadDialogFragment extends DialogFragment {
         super.onStart();
         Window window = getDialog().getWindow();
         window.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
-        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, 120); //TODO want 55% height
+        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, calcDisplayHeightFromBottom());
+    }
+
+    private int calcDisplayHeightFromBottom() {
+        DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
+        int height = (int) (displayMetrics.heightPixels / displayMetrics.density);
+        return (int) (height / 1.75);
     }
 
     @Override
