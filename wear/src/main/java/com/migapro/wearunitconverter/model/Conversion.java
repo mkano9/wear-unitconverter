@@ -10,7 +10,6 @@ public class Conversion {
 
     private String mNumFrom;
     private String mNumTo;
-
     private UnitList mUnitList;
     private int mUnitToIndex;
     private int mUnitFromIndex;

@@ -3,6 +3,7 @@ package com.migapro.wearunitconverter.utility;
 import com.migapro.wearunitconverter.R;
 
 public class Constants {
+
     public static final String KEY_LISTVIEW_DATA = "listview_data";
     public static final String KEY_ITEM_SELECTED_POSITION = "item_selected_position";
     public static final String KEY_DATA_LIST = "data_list";
