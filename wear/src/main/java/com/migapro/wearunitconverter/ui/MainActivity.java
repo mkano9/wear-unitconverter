@@ -11,7 +11,7 @@ import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.Conversion;
 import com.migapro.wearunitconverter.model.numberpadkey.NumberPadKey;
 import com.migapro.wearunitconverter.utility.Constants;
-import com.migapro.wearunitconverter.utility.NumberPadUtility;
+import com.migapro.wearunitconverter.utility.NumberPadUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -124,12 +124,12 @@ public class MainActivity extends Activity implements NumberPadDialogFragment.Nu
     public void onDialogDismiss() {
         String numberFrom = mConversion.getNumFrom();
 
-        if (NumberPadUtility.isLastCharPeriod(numberFrom)) {
+        if (NumberPadUtil.isLastCharPeriod(numberFrom)) {
             mConversion.setNumFrom(numberFrom.substring(0, numberFrom.length() - 1));
             numFromLabel.setText(mConversion.getNumFrom());
         }
 
-        if (NumberPadUtility.isNegativeZero(numberFrom)) {
+        if (NumberPadUtil.isNegativeZero(numberFrom)) {
             mConversion.setNumFrom("0");
             numFromLabel.setText(mConversion.getNumFrom());
         }

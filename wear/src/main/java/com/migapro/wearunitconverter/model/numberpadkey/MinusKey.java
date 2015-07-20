@@ -1,6 +1,6 @@
 package com.migapro.wearunitconverter.model.numberpadkey;
 
-import com.migapro.wearunitconverter.utility.NumberPadUtility;
+import com.migapro.wearunitconverter.utility.NumberPadUtil;
 
 public class MinusKey extends NumberPadKey {
 
@@ -8,7 +8,7 @@ public class MinusKey extends NumberPadKey {
 
     @Override
     public String processKey(String currentInput) {
-        if (NumberPadUtility.isFirstLetterNegativeSign(currentInput)) {
+        if (NumberPadUtil.isFirstLetterNegativeSign(currentInput)) {
             return currentInput.substring(1);
         }
 

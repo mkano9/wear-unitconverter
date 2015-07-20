@@ -1,6 +1,6 @@
 package com.migapro.wearunitconverter.model.numberpadkey;
 
-import com.migapro.wearunitconverter.utility.NumberPadUtility;
+import com.migapro.wearunitconverter.utility.NumberPadUtil;
 
 public class NumberKey extends NumberPadKey {
 
@@ -12,9 +12,9 @@ public class NumberKey extends NumberPadKey {
 
     @Override
     public String processKey(String currentInput) {
-        if (NumberPadUtility.isOnlyZero(currentInput)) {
+        if (NumberPadUtil.isOnlyZero(currentInput)) {
             return mNumber;
-        } else if (NumberPadUtility.isNegativeZero(currentInput)) {
+        } else if (NumberPadUtil.isNegativeZero(currentInput)) {
             return '-' + mNumber;
         }
 

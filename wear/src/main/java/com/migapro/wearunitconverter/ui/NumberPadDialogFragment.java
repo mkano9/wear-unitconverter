@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 
 import com.migapro.wearunitconverter.R;
 import com.migapro.wearunitconverter.model.numberpadkey.NumberPadKey;
-import com.migapro.wearunitconverter.utility.NumberPadUtility;
+import com.migapro.wearunitconverter.utility.NumberPadUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -49,7 +49,7 @@ public class NumberPadDialogFragment extends DialogFragment {
     @OnItemClick(R.id.gridview)
     public void onGridViewItemClick(View view) {
         NumberPadKey numberPadKey =
-                NumberPadUtility.generateNumberPadKey(((Button) view).getText().toString());
+                NumberPadUtil.generateNumberPadKey(((Button) view).getText().toString());
 
         listener.onKeyPress(numberPadKey);
     }

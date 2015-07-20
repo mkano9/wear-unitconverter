@@ -7,7 +7,7 @@ import com.migapro.wearunitconverter.model.numberpadkey.NumberKey;
 import com.migapro.wearunitconverter.model.numberpadkey.NumberPadKey;
 import com.migapro.wearunitconverter.model.numberpadkey.SingleDeleteKey;
 
-public class NumberPadUtility {
+public class NumberPadUtil {
 
     public static NumberPadKey generateNumberPadKey(String keyPressed) {
         NumberPadKey numberPadKey;
