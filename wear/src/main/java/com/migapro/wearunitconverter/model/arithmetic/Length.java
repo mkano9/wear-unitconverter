@@ -2,7 +2,7 @@ package com.migapro.wearunitconverter.model.arithmetic;
 
 import android.content.Context;
 
-import com.migapro.wearunitconverter.model.Conversion;
+import com.migapro.wearunitconverter.model.Input;
 import com.migapro.wearunitconverter.utility.Constants;
 
 import java.math.BigDecimal;
@@ -17,10 +17,10 @@ public class Length implements Arithmetic {
     }
 
     @Override
-    public String convert(Conversion conversion) {
-        BigDecimal numberFrom = new BigDecimal(conversion.getNumFrom());
-        BigDecimal unitFromValue = new BigDecimal(mUnitValuesArray[conversion.getUnitFromIndex()]);
-        BigDecimal unitToValue = new BigDecimal(mUnitValuesArray[conversion.getUnitToIndex()]);
+    public String convert(Input input) {
+        BigDecimal numberFrom = new BigDecimal(input.getNumFrom());
+        BigDecimal unitFromValue = new BigDecimal(mUnitValuesArray[input.getUnitFromIndex()]);
+        BigDecimal unitToValue = new BigDecimal(mUnitValuesArray[input.getUnitToIndex()]);
 
         BigDecimal numConvertedToBase = numberFrom.multiply(unitFromValue);
         BigDecimal result = numConvertedToBase.divide(unitToValue);

@@ -8,23 +8,18 @@ import com.migapro.wearunitconverter.utility.Constants;
 
 public class Conversion {
 
-    private String mNumFrom;
-    private String mNumTo;
-    private int mUnitToIndex;
-    private int mUnitFromIndex;
+    private Input mInput;
     private int mMeasurementType;
     private String[] mUnitNamesArray;
     private Arithmetic mArithmetic;
 
     public Conversion(Context context) {
-        mNumFrom = "0";
-        mNumTo = "0";
+        mInput = new Input();
         loadUnitsList(context);
     }
 
     public void loadUnitsList(Context context) {
-        mUnitToIndex = 0;
-        mUnitFromIndex = 0;
+        mInput.initUnitsIndex();
 
         mUnitNamesArray = context.getResources()
                 .getStringArray(Constants.UNIT_NAMES_RESOURCE_IDS[mMeasurementType]);
@@ -32,31 +27,23 @@ public class Conversion {
     }
 
     public void convertNumber() {
-        mNumTo = mArithmetic.convert(this);
+        mInput.setNumTo(mArithmetic.convert(mInput));
     }
 
     public String getNumFrom() {
-        return mNumFrom;
+        return mInput.getNumFrom();
     }
 
     public String getUnitFromName() {
-        return mUnitNamesArray[mUnitFromIndex];
-    }
-
-    public int getUnitFromIndex() {
-        return mUnitFromIndex;
+        return mUnitNamesArray[mInput.getUnitFromIndex()];
     }
 
     public String getNumTo() {
-        return mNumTo;
+        return mInput.getNumTo();
     }
 
     public String getUnitToName() {
-        return mUnitNamesArray[mUnitToIndex];
-    }
-
-    public int getUnitToIndex() {
-        return mUnitToIndex;
+        return mUnitNamesArray[mInput.getUnitToIndex()];
     }
 
     public String[] getUnitNamesList() {
@@ -64,15 +51,15 @@ public class Conversion {
     }
 
     public void setNumFrom(String numFrom) {
-        mNumFrom = numFrom;
+        mInput.setNumFrom(numFrom);
     }
 
     public void setUnitFrom(int unitFrom) {
-        mUnitFromIndex = unitFrom;
+        mInput.setUnitFromIndex(unitFrom);
     }
 
     public void setUnitTo(int unitTo) {
-        mUnitToIndex = unitTo;
+        mInput.setUnitToIndex(unitTo);
     }
 
     public void setMeasurementType(int measurementType) {

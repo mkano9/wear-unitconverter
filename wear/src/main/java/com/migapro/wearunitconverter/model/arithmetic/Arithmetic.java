@@ -1,7 +1,7 @@
 package com.migapro.wearunitconverter.model.arithmetic;
 
-import com.migapro.wearunitconverter.model.Conversion;
+import com.migapro.wearunitconverter.model.Input;
 
 public interface Arithmetic {
-    String convert(Conversion conversion);
+    String convert(Input input);
 }
