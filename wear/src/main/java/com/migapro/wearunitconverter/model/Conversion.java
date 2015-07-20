@@ -2,18 +2,19 @@ package com.migapro.wearunitconverter.model;
 
 import android.content.Context;
 
+import com.migapro.wearunitconverter.model.arithmetic.Arithmetic;
+import com.migapro.wearunitconverter.model.arithmetic.Length;
 import com.migapro.wearunitconverter.utility.Constants;
-
-import java.math.BigDecimal;
 
 public class Conversion {
 
     private String mNumFrom;
     private String mNumTo;
-    private UnitList mUnitList;
     private int mUnitToIndex;
     private int mUnitFromIndex;
     private int mMeasurementType;
+    private String[] mUnitNamesArray;
+    private Arithmetic mArithmetic;
 
     public Conversion(Context context) {
         mNumFrom = "0";
@@ -22,24 +23,16 @@ public class Conversion {
     }
 
     public void loadUnitsList(Context context) {
-        String[] unitNamesArray =
-                context.getResources().getStringArray(Constants.UNIT_NAMES_RESOURCE_IDS[mMeasurementType]);
-        String[] unitValuesArray =
-                context.getResources().getStringArray(Constants.UNIT_VALUES_RESOURCE_IDS[mMeasurementType]);
-        
-        mUnitList = new UnitList(unitNamesArray, unitValuesArray);
         mUnitToIndex = 0;
         mUnitFromIndex = 0;
+
+        mUnitNamesArray = context.getResources()
+                .getStringArray(Constants.UNIT_NAMES_RESOURCE_IDS[mMeasurementType]);
+        mArithmetic = new Length(context, mMeasurementType);
     }
 
     public void convertNumber() {
-        BigDecimal numberFrom = new BigDecimal(mNumFrom);
-        BigDecimal unitFromValue = new BigDecimal(mUnitList.getUnitValue(mUnitFromIndex));
-        BigDecimal unitToValue = new BigDecimal(mUnitList.getUnitValue(mUnitToIndex));
-
-        BigDecimal numConvertedToBase = numberFrom.multiply(unitFromValue);
-        BigDecimal result = numConvertedToBase.divide(unitToValue);
-        mNumTo = result.toPlainString();
+        mNumTo = mArithmetic.convert(this);
     }
 
     public String getNumFrom() {
@@ -47,7 +40,11 @@ public class Conversion {
     }
 
     public String getUnitFromName() {
-        return mUnitList.getUnitNames()[mUnitFromIndex];
+        return mUnitNamesArray[mUnitFromIndex];
+    }
+
+    public int getUnitFromIndex() {
+        return mUnitFromIndex;
     }
 
     public String getNumTo() {
@@ -55,11 +52,15 @@ public class Conversion {
     }
 
     public String getUnitToName() {
-        return mUnitList.getUnitNames()[mUnitToIndex];
+        return mUnitNamesArray[mUnitToIndex];
+    }
+
+    public int getUnitToIndex() {
+        return mUnitToIndex;
     }
 
     public String[] getUnitNamesList() {
-        return mUnitList.getUnitNames();
+        return mUnitNamesArray;
     }
 
     public void setNumFrom(String numFrom) {
